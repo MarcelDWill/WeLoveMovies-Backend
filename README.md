@@ -1,3 +1,9 @@
+backend deployment
+
+https://welovemovies-backend-uec6.onrender.com
+
+
+
 WeLoveMovies
 
 The WeLoveMovies project is a backend application designed to support a movie enthusiast platform. Users can access data about movies, theaters, and reviews, making it a central repository for movie-related information. As the backend developer for this startup, your primary focus is to set up the database and implement routes that allow smooth interaction with the stored data. This project was developed as part of the Thinkful curriculum to demonstrate proficiency in building robust backend systems and APIs.
