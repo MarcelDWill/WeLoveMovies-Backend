@@ -27,6 +27,7 @@ const read = movie_id => {
 
 };
 
+
 const readTheaterByMovie = (movie_id) => {
     return knex("theaters as t")
       .join("movies_theaters as mt", "mt.theater_id", "t.theater_id")
