@@ -7,13 +7,13 @@ const reviewExists= async (req, res, next) =>{
         res.locals.review = review;
         return next();
     }
-    next({ status: 404, message: "Review can't be found."});
+    next({ status: 404, message: "Review cannot be found."});
 };
 
 const update = async (req, res, next) =>{
     const review = res.locals.review.review_id;
     const updatedReview = {
-        ...req.body.date,
+        ...req.body.data,
         review_id: res.locals.review.review_id,
     };
     await reviewsService.update(updatedReview);

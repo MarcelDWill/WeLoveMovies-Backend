@@ -1,5 +1,6 @@
-const knex = require ("./db/connection");
-const mapProperties = require ("./utils/map_properties");
+const knex = require("../db/connection");
+
+const mapProperties = require ("../utils/map-properties");
 
 const addCritic = mapProperties({
     critic_id: "critic.critic_id",
@@ -16,7 +17,7 @@ const list = ()=> {
 
 const listMoviesCurrentlyShowing = ()=> {
     return knex("movies as m")
-    .join("movies_theaters as mt", "mt.movie.id", "m.movie_id")
+    .join("movies_theaters as mt", "mt.movie_id", "m.movie_id")
     .distinct("m.*")
     .where({"mt.is_showing": true});
 };
@@ -26,14 +27,16 @@ const read = movie_id => {
 
 };
 
-const readTheaterByMovie = movie_id => {
+const readTheaterByMovie = (movie_id) => {
     return knex("theaters as t")
-    .join("movies_theater as mt", "mt.theater_id", "t.theater_id")
-    .select("t.*", "mt.movie_id", )
-};
+      .join("movies_theaters as mt", "mt.theater_id", "t.theater_id")
+      .select("t.*", "mt.movie_id")
+      .where({ "mt.movie_id": movie_id });
+  };
+  
 
 const readReviewsByMovie = movie_id => {
-    return knex(" reviews as r")
+    return knex("reviews as r")
     .join("critics as c", "c.critic_id", "r.critic_id")
     .select("r.*", "c.*")
     .where({ "r.movie_id": movie_id })
