@@ -1,3 +1,7 @@
+frontend deployment
+
+https://starter-movie-front-end-xmv3.onrender.com/
+
 backend deployment
 
 https://welovemovies-backend-uec6.onrender.com
